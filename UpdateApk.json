@@ -1,5 +1,7 @@
 {
-  "version": "1.0.1",
+  "version_name": "1.0.1",
   "apk_url": "https://example.com/app-release.apk",
-  "changelog": "تم تحديث التطبيق مع إصلاح بعض الأخطاء وتحسين الأداء."
+  "update_title": "تحديث جديد متوفر",
+  "update_message": "تم إصلاح بعض الأخطاء وتحسين الأداء.",
+  "update_size": "25MB"
 }
