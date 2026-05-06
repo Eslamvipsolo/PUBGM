@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access Denied | Encryption Required</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Cairo:wght@400;700&display=swap');
+
+:root{
+  --p:#ff4d6d; --g:#00ff41; --bg:#0a0a0a;
+}
+
+*{box-sizing:border-box}
+body,html{
+  margin:0; padding:0; background:var(--bg); color:#fff;
+  font-family:'Courier Prime', monospace; overflow-x:hidden;
+}
+
+/* واجهة اللغز الاحترافية */
+#terminal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--bg); display: flex; align-items: center; justify-content: center;
+    z-index: 10000; padding: 20px;
+}
+
+.terminal-window {
+    width: 100%; max-width: 600px; background: #1a1a1a;
+    border: 1px solid #333; border-radius: 8px; box-shadow: 0 0 40px rgba(255, 77, 109, 0.2);
+    overflow: hidden;
+}
+
+.terminal-header {
+    background: #333; padding: 10px 15px; display: flex; gap: 8px;
+}
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.red { background: #ff5f56; } .yellow { background: #ffbd2e; } .green { background: #27c93f; }
+
+.terminal-body { padding: 20px; min-height: 250px; text-align: left; direction: ltr; }
+
+.command { color: var(--g); margin-bottom: 10px; font-size: 1rem; }
+.response { color: #ddd; margin-bottom: 20px; font-family: 'Cairo', sans-serif; text-align: right; }
+
+.input-line { display: flex; align-items: center; gap: 10px; margin-top: 20px; }
+.input-line span { color: var(--p); font-weight: bold; }
+input {
+    background: transparent; border: none; color: var(--p);
+    font-family: 'Courier Prime', monospace; font-size: 1.2rem;
+    outline: none; width: 100%;
+}
+
+/* ستايل القصة الأصلي */
+.moment {
+  min-height: 100vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; padding: 20px;
+  opacity: 0; transform: translateY(30px); transition: 1s ease;
+}
+.moment.show { opacity: 1; transform: none; }
+h1 { font-family: 'Cairo', serif; color: var(--p); font-size: 2.2rem; margin-bottom: 30px; text-align: center;}
+.chat-box {
+    width: 100%; max-width: 600px; background: rgba(255, 255, 255, 0.05);
+    border-right: 4px solid var(--p); border-radius: 10px; padding: 20px;
+    margin: 10px auto; line-height: 1.8; text-align: right; font-family: 'Cairo', sans-serif;
+}
+.y-name { color: var(--p); font-weight: bold; }
+.i-name { color: #4dabff; font-weight: bold; }
+.heart { position: fixed; top: -5vh; font-size: 20px; z-index: 999; animation: fall 3s linear forwards; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+</style>
+</head>
+<body>
+
+<div id="terminal-overlay">
+    <div class="terminal-window">
+        <div class="terminal-header">
+            <div class="dot red"></div><div class="dot yellow"></div><div class="dot green"></div>
+        </div>
+        <div class="terminal-body">
+            <div class="command">> system.init_love_protocol()</div>
+            <div class="response">تم تفعيل بروتوكول العشق.. جاري البحث عن "بنوتة إسلام"</div>
+            <div class="command">> status --check --target="yasmin"</div>
+            <div class="response">تحذير: الوصول مقيد. أثبتي هويتك أولاً يا نملة.</div>
+            <div class="command">> اللغز: "مين هي بنوتة إسلام وأغلى حاجة في حياته؟"</div>
+            
+            <div class="input-line">
+                <span>$ root@heart:</span>
+                <input type="text" id="passkey" autofocus autocomplete="off" placeholder="اكتبي الحل هنا...">
+            </div>
+            <p id="hint" style="color: #666; font-size: 0.8rem; margin-top: 15px; display: none; text-align: right; font-family:'Cairo';">الإجابة هي اسمك يا ياسو.. ركزي 😂</p>
+        </div>
+    </div>
+</div>
+
+<div id="content" style="display:none;">
+    <div class="moment show">
+        <h1>تم اختراق القلب بنجاح ❤️</h1>
+        <div class="chat-box">
+            <p><span class="y-name">ياسمين في المطبخ:</span> شوفت نملة عاملة عمايل استغفر الله العظيم يعني، لما صحابها بيشربوا بيبسي! 😂</p>
+            <p><span class="i-name">إسلام:</span> بيبسي هههههه.. بتعملي إيه يا بنوتي؟</p>
+            <p><span class="y-name">ياسمين:</span> بنوتك أهاا.. بنوتك!</p>
+            <p><span class="i-name">إسلام:</span> مالك بس أنتي؟ الهرمونات حضرت؟</p>
+            <p><span class="y-name">ياسمين:</span> أها وهنكد يا إسلام.</p>
+            <p><span class="i-name">إسلام:</span> طب اهدي يا رايا.</p>
+        </div>
+    </div>
+
+    <div class="moment">
+        <div class="chat-box">
+            <p><span class="y-name">ياسمين:</span> روح روح اقعد مع ضرتي.. أنت بتحب البرمجة أكتر من مراتك، سايبني كأني نملة!</p>
+            <p><span class="i-name">إسلام:</span> ههههه نملة إيه يا قلبي؟ أنتي بطة قلبي ❤️</p>
+            <p><span class="y-name">ياسمين:</span> مين بطة دي كمان؟ مراتك التانية؟</p>
+            <p><span class="i-name">إسلام:</span> <span style="color:#aaa;">(قرب منها وهمس)</span> أنتي مراتي ياسمين.</p>
+        </div>
+    </div>
+
+    <div class="moment">
+        <div class="chat-box">
+            <p><span class="y-name">ياسمين بخجل:</span> بتحبني أكتر من البرمجة؟ 👉👈</p>
+            <p><span class="i-name">إسلام:</span> أنتي بتقارني حبي ليكي بحاجة تافهة؟ أنتي بنوتي، أنتي عشق إسلام.</p>
+            <p><span class="y-name">ياسمين بطفولة:</span> مش كان اسمها عشق الزين برضه؟</p>
+            <p><span class="i-name">إسلام:</span> تؤتؤ.. عشق إسلام، "الزين" ده جو روايات يا مزة.</p>
+        </div>
+    </div>
+
+    <div class="moment">
+        <div class="chat-box">
+            <p><span class="y-name">ياسمين:</span> طب صالحني.. عوزة أتفرج على اريال 😊</p>
+            <p><span class="i-name">إسلام:</span> عيب كده أنا راجل وقور.. يالا انجري قدامي نتفرج.</p>
+            <p><span class="y-name">ياسمين بفرحة:</span> بحبك يا إسلام <span style="color:#aaa;">(حضنته أوي)</span>.</p>
+            <p><span class="i-name">إسلام:</span> وأنا كمان يا ياسمين.</p>
+        </div>
+    </div>
+
+    <div class="moment">
+        <div class="chat-box">
+            <p><span class="y-name">ياسمين بتجري:</span> الأكل اتحرق يالهويييي! 🔥</p>
+            <p><span class="i-name">إسلام:</span> متجوز مجنونة 🙍.. اطلب بيتزا بقى يا روحي.</p>
+            <p style="text-align:center; font-size: 1.5rem; color: var(--p);">حبيبي يا قلبو ههههههه ❤️</p>
+        </div>
+    </div>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="https://d.top4top.io/m_37787wul50.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const input = document.getElementById('passkey');
+input.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        const val = input.value.trim().toLowerCase();
+        // الإجابة المقبولة: ياسمين أو ياسمين بالانجليزي
+        if (val === "ياسمين" || val === "yasmin" || val === "ياسو") {
+            unlock();
+        } else {
+            document.getElementById('hint').style.display = 'block';
+            input.value = "";
+        }
+    }
+});
+
+function unlock() {
+    document.getElementById('terminal-overlay').style.fadeOut = "slow";
+    document.getElementById('terminal-overlay').style.display = 'none';
+    document.getElementById('content').style.display = 'block';
+    
+    const music = document.getElementById('bgMusic');
+    music.play();
+
+    setInterval(() => {
+        const h = document.createElement('div');
+        h.className = 'heart'; h.innerText = '❤️';
+        h.style.left = Math.random() * 100 + 'vw';
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 3000);
+    }, 400);
+
+    window.addEventListener('scroll', () => {
+        document.querySelectorAll('.moment').forEach(m => {
+            if(m.getBoundingClientRect().top < window.innerHeight - 100) m.classList.add('show');
+        });
+    });
+}
+</script>
+
+</body>
+</html>
